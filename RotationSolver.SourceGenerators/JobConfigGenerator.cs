@@ -131,6 +131,7 @@ public class JobConfigGenerator : IIncrementalGenerator
 
 			var code = $$"""
                 using ECommons.ExcelServices;
+                using Newtonsoft.Json;
 
                 namespace {{namespaceName}}
                 {
