@@ -24,7 +24,7 @@ internal class Service : IDisposable
 	public const string AUTOCOMMAND = "/rotation Auto";
 	public const string OFFCOMMAND = "/rotation Off";
 	public const string USERNAME = "FFXIV-CombatReborn";
-	public const string REPO = "RotationSolverReborn";
+	public const string REPO = "RSRcnPU";
 
 	[EzHook("40 53 55 56 57 48 81 EC ?? ?? ?? ?? 0F 29 B4 24 ?? ?? ?? ?? 48 8B 05 ?? ?? ?? ?? 48 33 C4 48 89 84 24 ?? ?? ?? ?? 0F B6 AC 24 ?? ?? ?? ?? 0F 28 F3 49 8B F8", nameof(ActorVfxCreateDetour), true)]
 	private readonly EzHook<ActorVfxCreateDelegate2> actorVfxCreateHook = null!;

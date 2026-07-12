@@ -15,7 +15,7 @@ internal static class ImguiTooltips
 		  ImGuiWindowFlags.NoInputs |
 		  ImGuiWindowFlags.AlwaysAutoResize;
 
-	private const string TooltipId = "RotationSolverReborn Tooltips";
+	private const string TooltipId = "RotationSolverLocalized Tooltips";
 
 	/// <summary>
 	/// Displays a tooltip when the item is hovered.
