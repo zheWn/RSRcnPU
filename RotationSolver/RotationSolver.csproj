@@ -23,6 +23,10 @@
 		<NoWarn>1591</NoWarn>
 	</PropertyGroup>
 
+t<Target Name="ZipPlugin" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
+tt<DalamudPackager ProjectDir="$(ProjectDir)" OutputPath="$(OutputPath)" AssemblyName="$(AssemblyName)" MakeZip="true" />
+t</Target>
+
 	<ItemGroup>
 		<!-- Keep ECommons runtime so its DLL is included -->
 		<PackageReference Include="ECommons" Version="3.2.1.15" />
