@@ -589,14 +589,7 @@ public partial class RotationConfigWindow : Window
 
 				string displayName;
 
-				if (CNLanguageClient)
-				{
-					displayName = item.CNString();
-				}
-				else
-				{
-					displayName = item.ToString();
-				}
+				displayName = item.DisplayName();
 				if (item == RotationConfigWindowTab.Job && Player.Object != null)
 				{
 					if (CNLanguageClient)

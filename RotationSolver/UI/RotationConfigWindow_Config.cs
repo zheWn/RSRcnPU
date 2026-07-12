@@ -214,14 +214,14 @@ public partial class RotationConfigWindow
 
 	private static void DrawInternalTab()
 	{
-		ImGui.Text($"Configs/Backups location: {Svc.PluginInterface.ConfigFile.Directory}");
+		ImGui.Text($"{Loc.Get("Inline.Config_Config.BackupLocation", "Configs/Backups location")}: {Svc.PluginInterface.ConfigFile.Directory}");
 
-		if (ImGui.Button("Backup Configs"))
+		if (ImGui.Button(Loc.Get("Inline.Config_Config.BackupBtn", "Backup Configs")))
 		{
 			Service.Config.Backup();
 		}
 
-		if (ImGui.Button("Restore Configs"))
+		if (ImGui.Button(Loc.Get("Inline.Config_Config.RestoreBtn", "Restore Configs")))
 		{
 			Service.Config.Restore();
 		}

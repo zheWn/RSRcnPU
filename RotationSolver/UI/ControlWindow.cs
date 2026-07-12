@@ -82,10 +82,10 @@ internal class ControlWindow : CtrlWindow
 		columnWidth = Math.Max(columnWidth, ImGui.GetCursorPosX());
 
 		var autoMode = DataCenter.TargetingType;
-		ImGui.Text(" Targeting: " + autoMode.ToString());
+		ImGui.Text(Loc.Get("Inline.Control.Targeting", "Targeting: ") + autoMode.ToString());
 
 		var aoeType = Service.Config.AoEType;
-		if (ImGuiHelper.SelectableButton("AoE: " + aoeType.ToString()))
+		if (ImGuiHelper.SelectableButton(Loc.Get("Inline.Control.AoE", "AoE: ") + aoeType.ToString()))
 		{
 			aoeType = (ConfigTypes.AoEType)(((int)aoeType + 1) % 3);
 			Service.Config.AoEType = aoeType;
@@ -203,7 +203,7 @@ internal class ControlWindow : CtrlWindow
 
 		ImGui.Spacing();
 
-		ImGui.Text("CMD:");
+		ImGui.Text(Loc.Get("Inline.Control.CMD", "CMD:"));
 		ImGui.SameLine();
 
 		_ = DrawIAction(DataCenter.CommandNextAction, Service.Config.ControlWindow0GCDSize, 1);
@@ -212,7 +212,7 @@ internal class ControlWindow : CtrlWindow
 
 		using var group = ImRaii.Group();
 		ImGui.Text(DataCenter.CurrentTargetToHostileType.GetDescription());
-		ImGui.Text("Auto: " + DataCenter.AutoStatus.ToString());
+		ImGui.Text(Loc.Get("Inline.Control.Auto", "Auto: ") + DataCenter.AutoStatus.ToString());
 	}
 
 	private static void DrawCommandAction(IAction? gcd, IAction? ability, SpecialCommandType command, Vector4 color)

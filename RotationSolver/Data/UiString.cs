@@ -677,6 +677,11 @@ namespace RotationSolver.Data
 
 		public static string GetDescription(this Enum value)
 		{
+			// Check localization dictionary first
+			var enumKey = $"UiString.{value}";
+			var localized = Loc.Get(enumKey, null);
+			if (localized != null) return localized;
+
 			if (_enumDescriptions.TryGetValue(value, out var description))
 			{
 				return description;

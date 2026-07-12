@@ -14,6 +14,7 @@ using RotationSolver.Commands;
 using RotationSolver.Data;
 using RotationSolver.IPC;
 //using KamiToolKit;
+using RotationSolver.Localization;
 using RotationSolver.UI;
 using RotationSolver.UI.HighlightTeachingMode;
 using RotationSolver.UI.HighlightTeachingMode.ElementSpecial;
@@ -51,6 +52,13 @@ public sealed class RotationSolverPlugin : IAsyncDalamudPlugin
 		ECommonsMain.Init(pluginInterface, this, ECommons.Module.DalamudReflector, ECommons.Module.ObjectFunctions);
 		//KamiToolKitLibrary.Initialize(pluginInterface);
 		IconSet.Init();
+
+		var locPath = Path.Combine(Svc.PluginInterface.ConfigFile.Directory?.FullName ?? ".", "Resources", "zh-CN.json");
+		if (!File.Exists(locPath))
+		{
+			locPath = Path.Combine(Path.GetDirectoryName(typeof(RotationSolverPlugin).Assembly.Location) ?? ".", "Resources", "zh-CN.json");
+		}
+		Task.Run(() => Loc.Initialize(locPath));
 
 		_dis.Add(new Service());
 
