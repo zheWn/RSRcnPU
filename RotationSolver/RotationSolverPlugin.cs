@@ -14,7 +14,6 @@ using RotationSolver.Commands;
 using RotationSolver.Data;
 using RotationSolver.IPC;
 //using KamiToolKit;
-using RotationSolver.Localization;
 using RotationSolver.UI;
 using RotationSolver.UI.HighlightTeachingMode;
 using RotationSolver.UI.HighlightTeachingMode.ElementSpecial;

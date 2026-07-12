@@ -1,7 +1,7 @@
 using ECommons.DalamudServices;
 using Newtonsoft.Json;
 
-namespace RotationSolver.Localization;
+namespace RotationSolver;
 
 /// <summary>
 /// 轻量级本地化引擎。
