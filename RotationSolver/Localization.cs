@@ -1,3 +1,4 @@
+using ECommons.DalamudServices;
 using Newtonsoft.Json;
 
 namespace RotationSolver.Localization;
@@ -26,13 +27,17 @@ public static class Loc
             _dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(json)
                     ?? new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         }
-        catch { }
+        catch (Exception ex)
+        {
+            Svc.Log.Warning(ex, $"Failed to load localization file: {jsonPath}");
+        }
         _initialized = true;
     }
 
     /// <summary> 翻译：查找 key，找不到返回 fallback；fallback 为空时返回 key 本身 </summary>
     public static string Get(string key, string fallback = "")
     {
+        if (!_initialized) return fallback;
         if (_dict.TryGetValue(key, out var value)) return value;
         return string.IsNullOrEmpty(fallback) ? key : fallback;
     }
